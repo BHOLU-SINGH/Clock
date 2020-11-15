@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Clock | UI Design</title>
+	<link rel="stylesheet" href="bootstrap.min.css">
+
+	<style type="text/css">
+		body{
+	   		background: #8206DB;
+	   		width: 100%;
+	   		height: 100vh;
+	   	}
+	   	.mainDiv{
+	   		position: absolute;
+	   		width: 100%;
+	   		height: 100vh;
+	   	}
+		.container{
+			margin-top: 4%;
+		}
+		.container .row .col h1{
+			text-align: center;
+			color: #fff;
+			font-size: 45px;
+			font-family: verdhana;
+		}
+		.container .row .col p{
+			float: right;
+			color: #fff;
+			font-size: 18px;
+			margin-right: 5%;
+		}
+		.container .row .col p a{
+			color: tomato;
+		}
+		.inputField{
+			position: relative;
+			margin-top: 0px;
+		}
+		.inputField .row .col-10 span{
+			position: relative;
+			width: 100%;
+			height: auto;
+			/*margin-bottom: 10%;*/
+			font-size: 120px;
+			text-align: center;
+			padding: 95px 95px;
+			cursor: pointer;
+			display: block;
+			background-color: #8206DB;
+			color: #000;
+			box-shadow: 0px 0px 10px,0px 0px 20px #444;
+			transition: 1s linear;
+		}
+		.inputField .row .col-10 span:hover{
+			background-color: #8206DB;
+			color: #fff;
+			box-shadow: 0px 0px 10px,0px 0px 12px #fff;
+		}
+	</style>
+</head>
+<body>
+	<div class="mainDiv">
+		<div class="container">
+			<div class="row">
+				<div class="col">
+					<h1>Clock | UI Design</h1>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					<p>Design by <a href="#">RightRoyalBhai</a></p>
+				</div>
+			</div>
+		</div>
+		<div class="container inputField">
+			<div class="row">
+				<div class="col-10 offset-1">
+					<span id="txt"></span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		window.onload = function(){getTime();}
+		function getTime() {
+			var today = new Date();
+			var h = today.getHours();
+			var m = today.getMinutes();
+			var s = today.getSeconds();
+
+			m = checkTime(m);
+			s = checkTime(s);
+
+			document.getElementById('txt').innerHTML = h+" : "+m+" : "+s;
+			setTimeout(function() { getTime() },1000);
+		}
+		function checkTime(i) {
+			if(i < 10){
+				i = "0" + i;
+			}
+			return i;
+		}
+	</script>
+</body>
+</html>
